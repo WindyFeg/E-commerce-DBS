@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:PortfolioId;datatype:int,name:RegId;datatype:int,name:PolicyNumber;datatype:int,name:PolicyName;datatype:string,name:PremiumDate;datatype:date,name:PremiumAmount;datatype:real,name:MaturityDate;datatype:date,name:MaturityAmount;datatype:real" />
+	<infoitem key="UD_Recordset2" value="name:PortfolioId;datatype:int,name:PolicyNumber;datatype:int,name:PolicyName;datatype:string,name:PremiumDate;datatype:date,name:PremiumAmount;datatype:real,name:MaturityDate;datatype:date,name:MaturityAmount;datatype:real" />
+</info>
