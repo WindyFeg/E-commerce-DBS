@@ -39,6 +39,7 @@ INSERT INTO `sys`.`category` (`CategoryID`, `CName`, `CDescription`) VALUES ('C_
 INSERT INTO `sys`.`category` (`CategoryID`, `CName`, `CDescription`) VALUES ('C_02', 'Quần', 'Quần là loại trang phục mặc từ eo đến mắt cá chân hoặc che đến đầu gối, cao hoặc thấp hơn đầu gối tùy loại, che phủ từng chân riêng biệt');
 INSERT INTO `sys`.`category` (`CategoryID`, `CName`, `CDescription`) VALUES ('C_03', 'Mũ', 'Mũ là vật dụng để che đầu');
 
+-- USER TABLE
 drop table if exists `sys`.`user`;
 CREATE TABLE `sys`.`user` (
   `UserID` INT NOT NULL,
@@ -62,14 +63,23 @@ CREATE TABLE `sys`.`user` (
 );
 
 drop table if exists `sys`.`customer`;
-create table `sys`.`customer`(
-  `UserID` INT primary key references `sys`.`user`(`UserID`),
+CREATE TABLE `sys`.`customer`(
+  `CustomerID` INT PRIMARY KEY REFERENCES `sys`.`user`(`UserID`),
   `success_order` VARCHAR(255)[],
   `pending_order` VARCHAR(255)[],
   `failed_order` VARCHAR(255)[],
   );
-drop table if exists `sys`.`shiper`;
+drop table if exists `sys`.`shipper`;
+CREATE TABLE `sys`.`shipper`(
+  `ShipperID` INT PRIMARY KEY REFERENCES `sys`.`user`(`UserID`),
+  `vehicle_type` VARCHAR(255) NOT NULL,
+  `license_plate` VARCHAR(255) NOT NULL,
+  `shipper_name` VARCHAR(255) NOT NULL,
+  );
+
+
 
 drop table if exists `sys`.`admin`;
-
-
+CREATE TABLE `sys`.`admin` (
+  `AdminID` INT PRIMARY KEY REFERENCES `sys`.`user`(`UserID`),
+);
