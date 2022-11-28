@@ -39,47 +39,132 @@ INSERT INTO `sys`.`category` (`CategoryID`, `CName`, `CDescription`) VALUES ('C_
 INSERT INTO `sys`.`category` (`CategoryID`, `CName`, `CDescription`) VALUES ('C_02', 'Quần', 'Quần là loại trang phục mặc từ eo đến mắt cá chân hoặc che đến đầu gối, cao hoặc thấp hơn đầu gối tùy loại, che phủ từng chân riêng biệt');
 INSERT INTO `sys`.`category` (`CategoryID`, `CName`, `CDescription`) VALUES ('C_03', 'Mũ', 'Mũ là vật dụng để che đầu');
 
--- USER TABLE
+-- USER
 drop table if exists `sys`.`user`;
 CREATE TABLE `sys`.`user` (
   `UserID` INT NOT NULL,
-  `user_name` VARCHAR(255) NOT NULL,
-  `user_fname` VARCHAR(255) NOT NULL,
-  `user_lname` VARCHAR(255) NOT NULL,
-  `password` VARCHAR(255) NOT NULL,
-  `email` VARCHAR(255) NOT NULL,
-  `phone` VARCHAR(15) NOT NULL,
-  `address_line1` VARCHAR(255) NOT NULL,
-  `address_line2` VARCHAR(255) NOT NULL,
-  `city` VARCHaR(255) NOT NULL,
-  `country` VARCHAR(255) NOT NULL,
-  `postal_code` VARCHAR(255) NOT NULL,
-  `type` VARCHAR(255) NOT NULL,
-  `provider` VARCHAR(255) NOT NULL,
-  `account_no` VARCHAR(255),
-  `expire_date` VARCHAR(255) NOT NULL,
-  `voucher` VARCHAR(255) NOT NULL,
+  `UserName` VARCHAR(255) NOT NULL,
+  `UserFName` VARCHAR(255) NOT NULL,
+  `UserLNname` VARCHAR(255) NOT NULL,
+  `Password` VARCHAR(255) NOT NULL,
+  `Email` VARCHAR(255) NOT NULL,
+  `Phone` VARCHAR(15) NOT NULL,
+  `Address1` VARCHAR(255) NOT NULL,
+  `Address2` VARCHAR(255),
+  `City` VARCHAR(255) NOT NULL,
+  `Country` VARCHAR(255) NOT NULL,
+  `PostalCode` VARCHAR(255) NOT NULL,
+  `Type` VARCHAR(255) NOT NULL,
+  `Provider` VARCHAR(255) NOT NULL,
+  `AccountNo` VARCHAR(255),
+  `ExpireDate` VARCHAR(255) NOT NULL,
+  `Voucher` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`UserID`)
 );
 
+
+-- CUSTOMER
 drop table if exists `sys`.`customer`;
 CREATE TABLE `sys`.`customer`(
   `CustomerID` INT PRIMARY KEY REFERENCES `sys`.`user`(`UserID`),
-  `success_order` VARCHAR(255)[],
-  `pending_order` VARCHAR(255)[],
-  `failed_order` VARCHAR(255)[],
+  `C_RatingID` INT PRIMARY KEY,
+  `SuccessOrder` VARCHAR(255)[],
+  `PendingOrder` VARCHAR(255)[],
+  `FailedOrder` VARCHAR(255)[]
   );
+
+  -- SHIPPER
 drop table if exists `sys`.`shipper`;
 CREATE TABLE `sys`.`shipper`(
   `ShipperID` INT PRIMARY KEY REFERENCES `sys`.`user`(`UserID`),
-  `vehicle_type` VARCHAR(255) NOT NULL,
-  `license_plate` VARCHAR(255) NOT NULL,
-  `shipper_name` VARCHAR(255) NOT NULL,
+  `VehicleType` VARCHAR(255) NOT NULL,
+  `LicensePlate` VARCHAR(255) NOT NULL,
+  `ShipperName` VARCHAR(255) NOT NULL
   );
 
 
-
+-- ADMIN
 drop table if exists `sys`.`admin`;
 CREATE TABLE `sys`.`admin` (
-  `AdminID` INT PRIMARY KEY REFERENCES `sys`.`user`(`UserID`),
+  `AdminID` INT PRIMARY KEY REFERENCES `sys`.`user`(`UserID`)
+);
+
+
+
+
+-- PROMOTION
+drop table if exists `sys`.`promotion`;
+CREATE TABLE `sys`.`promotion` (
+  `PromotionID` INT NOT NULL,
+  `Description` VARCHAR(255) NOT NULL,
+  `PromotionName` VARCHAR(255) NOT NULL,
+  `PromotionDuration` DATE NOT NULL,
+  `BeginTime` VARCHAR(255) NOT NULL,
+  `EndTime` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`PromotionID`)
+);
+
+-- SAMPLE
+drop table if exists `sys`.`sample`;
+CREATE TABLE `sys`.`sample`(
+  `SampleID` INT PRIMARY KEY REFERENCES `sys`.`promotion`(`PromotionID`),
+  `Condition` VARCHAR(255)
+  );
+
+-- VOUCHER
+drop table if exists `sys`.`voucher`;
+CREATE TABLE `sys`.`voucher`(
+  `V_Promotion_ID` INT PRIMARY KEY REFERENCES `sys`.`promotion`(`PromotionID`),
+  `VoucherCode` VARCHAR(255) PRIMARY KEY NOT NULL,
+  `VoucherName` VARCHAR(255) NOT NULL,
+  `Rate` FLOAT NOT NULL,
+  `ExpireDate` DATE NOT NULL,
+  `Active` INT NOT NULL,
+  `MoneyDiscount` FLOAT NOT NULL
+  );
+
+-- ORDER
+drop table if exists `sys`.`order`;
+CREATE TABLE `sys`.`order`(
+  `OrderID` INT PRIMARY KEY NOT NULL,
+  `SendDate` DATE NOT NULL,
+  `NoDeliver` INT NOT NULL,
+  `ExpectedDeliverDate` DATE,
+  `O_Location` VARCHAR(255) NOT NULL,
+  `Cash` INT NOT NULL,
+  `Card` INT NOT NULL,
+  `TotalPayment` FLOAT NOT NULL,
+  `State` VARCHAR(255) NOT NULL
+
+)
+
+
+-- RATING 
+drop table if exists `sys`.`rating`;
+CREATE TABLE `sys`.`rating` (
+    `RatingID` INT PRIMARY KEY REFERENCES `sys`.`customer`(`CRatingID`),
+    `ItemID` INT PRIMARY KEY REFERENCES `sys`.`item`(`ItemID`),
+    `Description` VARCHAR(255) NOT NULL
+)
+
+
+
+
+
+
+
+-- GIVEAWAY
+drop table if exists `sys`.`giveaway`;
+CREATE TABLE `sys`.`giveaway` (
+    `GASampleID` INT PRIMARY KEY REFERENCES `sys`.`sample`(`SampleID`),
+    `GAItemID` INT PRIMARY KEY REFERENCES `sys`.`item`(`ItemID`),
+    `Quantity` INT NOT NULL
+)
+
+-- CONTAIN
+drop table if exists `sys`.`contain`;
+CREATE TABLE `sys`.`contain`(
+  `C_OrderID` INT PRIMARY KEY REFERENCES `sys`.`order`(`OrderID`),
+  `C_ItemID` INT PRIMARY KEY REFERENCES `sys`.`item`(`ItemID`),
+  `Quantity` INT NOT NULL
 );
