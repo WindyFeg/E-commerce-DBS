@@ -57,7 +57,7 @@ CREATE TABLE `sys`.`user` (
   `Type` VARCHAR(255) NOT NULL,
   `Provider` VARCHAR(255) NOT NULL,
   `AccountNo` VARCHAR(255),
-  `ExpireDate` VARCHAR(255) NOT NULL,
+  `ExpireDate` DATE NOT NULL,
   `Voucher` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`UserID`)
 );
@@ -99,8 +99,8 @@ CREATE TABLE `sys`.`promotion` (
   `Description` VARCHAR(255) NOT NULL,
   `PromotionName` VARCHAR(255) NOT NULL,
   `PromotionDuration` DATE NOT NULL,
-  `BeginTime` VARCHAR(255) NOT NULL,
-  `EndTime` VARCHAR(255) NOT NULL,
+  `BeginTime` DATE NOT NULL,
+  `EndTime` DATE NOT NULL,
   PRIMARY KEY (`PromotionID`)
 );
 
