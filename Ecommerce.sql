@@ -39,3 +39,37 @@ INSERT INTO `sys`.`category` (`CategoryID`, `CName`, `CDescription`) VALUES ('C_
 INSERT INTO `sys`.`category` (`CategoryID`, `CName`, `CDescription`) VALUES ('C_02', 'Quần', 'Quần là loại trang phục mặc từ eo đến mắt cá chân hoặc che đến đầu gối, cao hoặc thấp hơn đầu gối tùy loại, che phủ từng chân riêng biệt');
 INSERT INTO `sys`.`category` (`CategoryID`, `CName`, `CDescription`) VALUES ('C_03', 'Mũ', 'Mũ là vật dụng để che đầu');
 
+drop table if exists `sys`.`user`;
+CREATE TABLE `sys`.`user` (
+  `UserID` INT NOT NULL,
+  `user_name` VARCHAR(255) NOT NULL,
+  `user_fname` VARCHAR(255) NOT NULL,
+  `user_lname` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `phone` VARCHAR(15) NOT NULL,
+  `address_line1` VARCHAR(255) NOT NULL,
+  `address_line2` VARCHAR(255) NOT NULL,
+  `city` VARCHaR(255) NOT NULL,
+  `country` VARCHAR(255) NOT NULL,
+  `postal_code` VARCHAR(255) NOT NULL,
+  `type` VARCHAR(255) NOT NULL,
+  `provider` VARCHAR(255) NOT NULL,
+  `account_no` VARCHAR(255),
+  `expire_date` VARCHAR(255) NOT NULL,
+  `voucher` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`UserID`)
+);
+
+drop table if exists `sys`.`customer`;
+create table `sys`.`customer`(
+  `UserID` INT primary key references `sys`.`user`(`UserID`),
+  `success_order` VARCHAR(255)[],
+  `pending_order` VARCHAR(255)[],
+  `failed_order` VARCHAR(255)[],
+  );
+drop table if exists `sys`.`shiper`;
+
+drop table if exists `sys`.`admin`;
+
+
