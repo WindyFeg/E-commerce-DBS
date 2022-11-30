@@ -62,6 +62,7 @@ CREATE TABLE `sys`.`user` (
   PRIMARY KEY (`UserID`)
 );
 
+-- =CONCAT("INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('",A2,"','",B2,"','",C2,"','",D2,"','",E2,"','",F2,"','",G2,"','",H2,"','",I2,"','",K2,"','",L2,"')")
 INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('1','523444365','admin','admin','admin@gmail.com','Minh Hoàng','Võ','Ho Chi Minh','32 Phan Xích Long - Phú Nhuận','725000','Vietnam')
 INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('2','333214324','khanh12345','12323','gonzalo.bergstrom@towne.com','Quốc Khánh','Bùi','Ho Chi Minh','125 Trương Định - Tân Bình','700915','Vietnam')
 INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('3','823388343','minhqlcn1235','42133','ukerluke@strosin.com','Nhật Minh','Phạm','Ho Chi Minh','219 Hòa Hảo - Quận 10','700910','Vietnam')
