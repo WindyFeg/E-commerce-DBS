@@ -15,3 +15,7 @@
 -- FROM item i, category c
 -- WHERE i.ICategoryID = c.CategoryID
 -- group by c.CName
+
+-- SELECT 
+-- FROM
+-- WHERE
