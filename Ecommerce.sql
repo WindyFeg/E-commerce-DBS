@@ -62,8 +62,22 @@ CREATE TABLE `sys`.`user` (
   PRIMARY KEY (`UserID`)
 );
 
+INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('1','523444365','admin','admin','admin@gmail.com','Minh Hoàng','Võ','Ho Chi Minh','32 Phan Xích Long - Phú Nhuận','725000','Vietnam')
+INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('2','333214324','khanh12345','12323','gonzalo.bergstrom@towne.com','Quốc Khánh','Bùi','Ho Chi Minh','125 Trương Định - Tân Bình','700915','Vietnam')
+INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('3','823388343','minhqlcn1235','42133','ukerluke@strosin.com','Nhật Minh','Phạm','Ho Chi Minh','219 Hòa Hảo - Quận 10','700910','Vietnam')
+INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('4','831123333','nhansuper654','44163','sfeil@yahoo.com','Trọng Nhân','Trần','Ho Chi Minh','25 Hậu Giang - Quận 6','746000','Vietnam')
+INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('5','461635152','nhut258','32442','fisher.gustave@bernhard.com','Minh Nhựt','Trần','Ho Chi Minh','52 Lê Văn Duyệt - Quận 9','715000','Vietnam')
+INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('6','453561346','dinhramos444','53261','gbogan@thiel.biz','Phương Đình','Trần','Ho Chi Minh','12 Bạch Đằng - Bình Thạnh','717000','Vietnam')
+INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('7','666112661','huy123','44311','whitney55@yahoo.com','Đình Phong','Trần','Ho Chi Minh','24 Võ Văn Ngân - Thủ Đức','720100','Vietnam')
+INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('8','555266443','thuanpham05','56155','cooper.christiansen@blick.com','Gia Nghi','Nguyễn','Ho Chi Minh','45 Xuân Diệu - Thủ Đức','721500','Vietnam')
+INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('9','241344241','vy123','33431','howe.tyra@gmail.com','Tường Lâm','Lê','Ho Chi Minh','78 Kỳ Hòa - Quận 10','700940','Vietnam')
+INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('10','666545245','canhxuan578','51126','feest.michaela@yahoo.com','Chấn Khang','Lâm','Ho Chi Minh','98 Quang Trung - Gò Vấp','728100','Vietnam')
+INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('11','134861136','xuan23','as5d1','xuan23@gmail.com','Xuân Bách','Trần','Ho Chi Minh','Lý Thánh Tông - Quận Tân Phú','715000','Vietnam')
+INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('12','311649622','corn12','asfsga','Iilovecorn@yahoo.com','Đình Huy','Ngô','Ho Chi Minh','Chử Đồng Tử - Quận 10','717000','Vietnam')
+INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('13','150619498','lyluan_1','lylausn4','lyluanchinhtri@yahoo.com','Lý Gia Huy','Nguyễn','Ho Chi Minh','45 Lý thường Kiệt - Quận 10','720100','Vietnam')
+INSERT `sys`.`user` (`UserID`, `Phone`, `Password`, `UserFName`, `UserLNname`, `City`, `Address1`, `PostalCode`, `Country`) VALUES('14','206615195','Study2','agzfd26s5','strongasfu@gmail.com','Mạnh Quân','Lý','Ho Chi Minh','786A Hai Bà Trưng - Quận 1','721500','Vietnam')
 
--- CUSTOMER
+ -- CUSTOMER
 drop table if exists `sys`.`customer`;
 CREATE TABLE `sys`.`customer`(
   `CustomerID` INT PRIMARY KEY REFERENCES `sys`.`user`(`UserID`),
