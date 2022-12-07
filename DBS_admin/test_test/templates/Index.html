@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+        <title> Call Procudure</title>
+</head>
+
+<body>
+    <h1> How to call Stored Procedured</h1>
+    <h2> python django web framework</h2>
+    <hr/>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Total Selling</th>
+
+        </tr>
+        {%for display in get_best_seller_item%}
+        <tr>
+            
+            <td>{{display.0}}</td>
+            <td>{{display.1}}</td>
+           
+            
+        </tr>
+        {% endfor %}
+
+
+    </table>
+</body>

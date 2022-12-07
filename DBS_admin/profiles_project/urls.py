@@ -15,8 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework.routers import DefaultRouter
+from rest_framework.urlpatterns import format_suffix_patterns
+
+from django.urls import path, include
+
+from test_test import views
+
+# router = DefaultRouter()
+# router.register('', views.showdetails, basename='get_best_seller_item')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
+    path('item/',views.showdetails),
+    # path('', include(router.urls)),
 ]
+
+#urlpatterns = format_suffix_patterns(urlpatterns)

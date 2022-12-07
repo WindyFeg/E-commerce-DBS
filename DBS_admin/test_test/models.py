@@ -63,6 +63,11 @@ from django.db import models
 
 #         return thumbnail
 
+class get_best_seller_item(models.Model):
+    name = models.CharField(max_length=100)
+    total_selling = models.IntegerField()
+    
+###
 
 class Admin(models.Model):
     adminid = models.IntegerField(db_column='AdminID', primary_key=True)  # Field name made lowercase.
