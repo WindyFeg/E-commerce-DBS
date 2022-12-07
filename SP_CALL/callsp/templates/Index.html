@@ -9,26 +9,16 @@
     <hr/>
     <table border="1">
         <tr>
-            <th>id</th>
-            <th>p_id</th>
-            <th>p_name</th>
-            <th>u_id</th>
-            <th>u_name</th>
-            <th>quantity</th>
-            <th>u_address</th>
-            <th>u_contact</th>
+            <th>Name</th>
+            <th>Total Selling</th>
+
         </tr>
-        {%for display in getOrders%}
+        {%for display in get_best_seller_item%}
         <tr>
             
             <td>{{display.0}}</td>
             <td>{{display.1}}</td>
-            <td>{{display.2}}</td>
-            <td>{{display.3}}</td>
-            <td>{{display.4}}</td>
-            <td>{{display.5}}</td>
-            <td>{{display.6}}</td>
-            <td>{{display.7}}</td>
+           
             
         </tr>
         {% endfor %}

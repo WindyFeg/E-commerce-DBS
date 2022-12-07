@@ -63,9 +63,9 @@
     <section class="section">
       <router-view/>
     </section>
-
+ 
     <footer class="footer">
-      <p class="has-text-centered">Copyright (c) 2021</p>
+      <p class="has-text-centered">Copyright (c) 2022 by Gia An</p>
     </footer>
   </div>
 </template>

@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'callsp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ecom_db',
+        'NAME': 'sql_ecommerce',
         'USER':'root',
         'PASSWORD':'',
         'HOST':'localhost',
